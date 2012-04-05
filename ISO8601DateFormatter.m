@@ -589,6 +589,8 @@ static BOOL is_leap_year(unsigned year);
 
 	NSTimeZone *timeZone = nil;
 	NSDateComponents *components = [self dateComponentsFromString:string timeZone:&timeZone range:outRange];
+    if (timeZone == nil)
+        timeZone = self.defaultTimeZone;
 	if (outTimeZone)
 		*outTimeZone = timeZone;
 	calendar.timeZone = timeZone;
